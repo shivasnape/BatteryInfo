@@ -56,7 +56,9 @@ public class MainActivity extends AppCompatActivity {
                 info += ("Health: " + getHealthString(health) + "\n");
                 info += ("Status: " + getStatusString(status) + "\n");
 
-                setBatteryLevelText(info + "\n\n" + bundle.toString());
+//                setBatteryLevelText(info + "\n\n" + bundle.toString());
+                setBatteryLevelText(info);
+
             } else {
                 setBatteryLevelText("Battery not present!!!");
             }
@@ -73,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case BatteryManager.BATTERY_PLUGGED_USB:
                 plugType = "USB";
+                break;
+            default:
+                plugType = "Not Charging";
                 break;
         }
 
@@ -105,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String getStatusString(int status) {
+
         String statusString = "Unknown";
 
         switch (status) {
